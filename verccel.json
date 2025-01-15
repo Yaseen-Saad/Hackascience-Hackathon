@@ -1,8 +1,13 @@
 {
     "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "/api"
-        }
+      {
+        "source": "/submit",
+        "destination": "/api/submit"
+      },
+      {
+        "source": "/hackers",
+        "destination": "/api/hackers"
+      }
     ]
-}
+  }
+  
