@@ -5,7 +5,6 @@
   "main": "server.js",
   "scripts": {
     "devStart": "nodemon index.js",
-    "build": "node ./api/index.js",
     "start": "node ./api/index.js"
   },
   "keywords": [],
