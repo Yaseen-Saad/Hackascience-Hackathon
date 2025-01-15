@@ -57,7 +57,7 @@ const statsObserver = new IntersectionObserver((entries) => {
       const target = entry.target
       console.log();
 
-      const count = parseInt(entry.target.getAttribute('data-count') == 150 ? await fetch("/api/hackers").then(res => res.json()).then(data => data.hackers) : entry.target.getAttribute('data-count'));
+      const count = parseInt(entry.target.getAttribute('data-count') == 150 ? await fetch("/hackers").then(res => res.json()).then(data => data.hackers) : entry.target.getAttribute('data-count'));
       let current = 0;
       const increment = 0.5;
       function updateCount() {
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
 
-      const response = await fetch('/api/submit', {
+      const response = await fetch('/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
