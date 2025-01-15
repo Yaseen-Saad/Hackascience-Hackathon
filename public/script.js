@@ -58,6 +58,7 @@ const statsObserver = new IntersectionObserver((entries) => {
       console.log();
 
       const count = parseInt(entry.target.getAttribute('data-count') == 150 ? await fetch("/api/hackers").then(res => res.json()).then(data => data.hackers) : entry.target.getAttribute('data-count'));
+      document.querySelector("#hackers2").innerText = count;
       let current = 0;
       const increment = 0.5;
       function updateCount() {
