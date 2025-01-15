@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'));
 app.use(express.static(path.join(__dirname, './public')));
 
-router.post("/submit", async (req, res) => {
+app.post("/submit", async (req, res) => {
     try {
         const regestrationsRef = db.collection('regs');
         await regestrationsRef.add({ timestamp: Date.now(), ...req.body });
@@ -26,7 +26,7 @@ router.post("/submit", async (req, res) => {
     }
 })
 
-router.get("/hackers", async (req, res) => {
+app.get("/hackers", async (req, res) => {
     try {
         const regestrationsRef = db.collection('regs');
         const hackersCount = await regestrationsRef.count().get()
