@@ -1,7 +1,11 @@
 // HAMBURGER MENU LOGIC
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
-
+let hackersCount;
+(async () =>{
+  hackersCount = await fetch("/api/hackers").then(res => res.json()).then(data => data.hackers);
+  document.querySelector("#hackers2").innerText = hackersCount;
+})()
 if (hamburger) {
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
@@ -57,8 +61,7 @@ const statsObserver = new IntersectionObserver((entries) => {
       const target = entry.target
       console.log();
 
-      const count = parseInt(entry.target.getAttribute('data-count') == 150 ? await fetch("/api/hackers").then(res => res.json()).then(data => data.hackers) : entry.target.getAttribute('data-count'));
-      document.querySelector("#hackers2").innerText = count;
+      const count = parseInt(entry.target.getAttribute('data-count') == 150 ? hackersCount : entry.target.getAttribute('data-count'));
       let current = 0;
       const increment = 0.5;
       function updateCount() {
